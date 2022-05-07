@@ -9,7 +9,7 @@ import {
   import GoalInput from './components/GoalInput';
 
 export default function App() {
-  const [modalIsVisible, setModalIsVisible] = useState(false)
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   // setting to empty array that is what we want to handle
   const [courseGoals, setCourseGoals] = useState([]);
 
@@ -32,8 +32,8 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title='Add New Goal' color="#5e0acc"/>
-      {modalIsVisible && <GoalInput onAddGoal={addGoalHandler} />}
+      <Button title='Add New Goal' color="#5e0acc" onPress={startAddGoalHandler} />
+      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList 
           data={courseGoals} 
